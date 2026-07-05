@@ -19,6 +19,98 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    
+    <style>
+        /* Testimonial Carousel Styles - Infinite Loop */
+        .testimonial-carousel-container {
+            overflow: hidden;
+            padding: 2rem 0;
+            position: relative;
+        }
+        
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 1.5rem;
+            width: fit-content;
+        }
+        
+        .testimonial-card-wrapper {
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Desktop: Show 3 cards per view */
+        @media (min-width: 992px) {
+            .testimonial-card-wrapper {
+                width: calc((100% / 3) - 1rem); /* Account for gap */
+            }
+        }
+        
+        /* Tablet: Show 2 cards per view */
+        @media (max-width: 992px) and (min-width: 768px) {
+            .testimonial-card-wrapper {
+                width: calc((100% / 2) - 0.75rem);
+            }
+        }
+        
+        /* Mobile: Show 1 card per view */
+        @media (max-width: 767px) {
+            .testimonial-card-wrapper {
+                width: 100%;
+            }
+        }               
+        
+        /* Hide pagination dots for continuous scroll feel */
+        .carousel-page-indicator {
+            display: none;
+        } 
+        
+        /* Read More Link Styling */
+        .read-more-link {
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.2s ease;
+        }
+        
+        .read-more-link:hover {
+            color: #0b5ed7;
+            text-decoration: underline;
+        }
+        
+        .read-more-icon {
+            font-size: 0.8em;
+        }
+        
+        /* Quote Preview Limiting */
+        .blockquote-preview {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        
+        /* Modal improvements */
+        .modal-testimonial-body {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .modal-quote-large {
+            font-size: 1.25rem;
+            font-style: italic;
+            border-left: 4px solid #0d6efd;
+            padding-left: 1.5rem;
+            margin-left: 0.5rem;
+        }
+            
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VP51904YNR"></script>
@@ -164,13 +256,13 @@
                                 <div style="display: flex; justify-content: center; height: 213px;">
                                     <img class="img rounded-3 img-fluid" style="max-width: 100%; max-height: 100%; object-fit: contain;" src="assets/img/3d-printing.jpeg" alt="3D Printing logo" />
                                 </div>
-                                <p class="text-muted mb-0">3D design and printing services for custom electrical housings and parts</p>
+                            <p class="text-muted mb-0">3D design and printing services for custom electrical housings and parts</p>
                             </div>
                         </div>
-                        <div class="col mb-5">
+                        <div class="col-lg mb-5">
                             
                         </div>
-                        <div class="col mb-5 mb-md-0">
+                        <div class="col-lg mb-5 mb-md-0">
                             
                         </div>
                     </div>
@@ -178,6 +270,351 @@
             </div>
         </div>
     </section>
+    
+    <!-- Testimonials Section - Infinite Carousel -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container px-5">
+            <h2 class="text-center mb-5">What My Clients Say</h2>
+
+            <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner py-5">
+                    <div class="carousel-item active">
+                        <div class="container px-5">
+                            <div class="row">
+                                <div class="col">                                    
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                Joe is the best electrician ever! He is super reliable, very competent, fast and a very sympathic
+                                                person as well. He did a complete electrical...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial1">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Regine Helo, SV Blue Moon</footer>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="col">                                    
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                I used Joe to upgrade my existing AGM house bank to LifePo4 lithium along with other hardware upgrades,
+                                                He was both very reliable and knowledgeable...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial2">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Charlie, SV Lily</footer>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="col">                                    
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                Joe did an outstanding job on my motor yacht. He installed a new solar panel system with great
+                                                attention to detail, and the quality of his workmanship...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial3">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Maarten, MV Ryujin, Apreamare</footer>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>                                            
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container px-5">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                Joe was referred to me amongst others for electrical work.  I did met a few electricians and between professionalism, cost, personality... it worked well...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial4">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">RobbieC, SV Saoirse</footer>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                Joe has been an incredible help with the complete electrical system on my catamaran. During his
+                                                inspection, he discovered several wiring mistakes that had been...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial5">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Maarten, Gan Eden, Lagoon 450S</footer>
+                                        </div>
+                                    </div>
+                                </div>                            
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                We recently had Joe from Joe complete a lithium battery upgrade on our boat, and we could not be happier with the result. From the very beginning...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial6">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">William, SV Slip Away</footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>      
+                        </div>                                                                                                                
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container px-5">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                Joe has done several installations on Aba, including solar, inverter and smart monitoring system.
+                                                Joe does very good work at competitive prices, he is reliable...
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial7">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Dave, SV Aba</footer>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                "..."
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial8">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Anonymous</footer>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <div class="card-body p-4">
+                                            <div class="mb-3"><i class="bi bi-quote fs-1 text-muted opacity-25"></i></div>
+                                            <p class="blockquote-preview">
+                                                "..."
+                                            </p>
+                                            <span class="read-more-link" data-bs-toggle="modal" data-bs-target="#modalTestimonial9">
+                                                Read More <i class="bi bi-arrow-right read-more-icon"></i>
+                                            </span>
+                                            <hr class="my-3">
+                                            <footer class="blockquote-footer fst-italic">Anonymous</footer>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                                                                           
+                    </div>
+                </div>                
+            </div>
+                        
+        </div>
+    </section>
+    
+    <!-- Testimonial Modals (Hidden by default) -->
+    <!-- All 10 modals remain unchanged from previous version -->
+    <div class="modal fade" id="modalTestimonial1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"Joe is the best electrician ever!  He is super reliable, very competent, fast and a very sympathic person as well. He did a complete electrical plan of my 37ft sailboat: AC, DC, Raymarine… and installed severeal instruments and a watermaker. He saved my project with finding out many lifethreatening mistakes as well. Thank you so much for your awesome work!"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"I used Joe to upgrade my existing AGM house bank to LifePo4 lithium along with other hardware upgrades, He was both very reliable and knowledgeable, from the first contact to installation it was a seamless experiance. I would not hesitate to recommend him."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"Joe did an outstanding job on my motor yacht. He installed a new solar panel system with great attention to detail, and the quality of his workmanship was excellent from start to finish.
+Throughout the project, Joe was professional, reliable, and always willing to explain what he was doing. It was clear that he genuinely cared about delivering the best possible result and wasn't satisfied until everything was working perfectly.
+I am extremely happy with the outcome and would highly recommend Joe to anyone looking for a knowledgeable and trustworthy marine electrician. His expertise and dedication are second to none."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"Joe was referred to me amongst others for electrical work.  I did met a few electricians and between professionalism, cost, personality... it worked well.  Between a September introduction and scheduling for the following May, the lithium battery install, solar panel electrics and victron install, everything happened smoothly.  Communication was constant and willingly spent time explaining as needed."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"Joe has been an incredible help with the complete electrical system on my catamaran. During his inspection, he discovered several wiring mistakes that had been made in the past and systematically corrected every one of them.
+
+One example was my watermaker, which had been wired so that it would only operate when connected to shore power. Obviously, that made no sense on a cruising boat. Joe identified the problem, rewired the system correctly, and made sure everything worked exactly as it should.
+
+He also checked the rest of the electrical installation, found several other issues, and fixed them with great skill and attention to detail. Joe is highly professional, reliable, and takes the time to explain everything clearly. He doesn't leave until he knows the job has been done properly.
+
+I couldn't be happier with his work and would recommend him without hesitation to anyone looking for a first-class marine electrician."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial6" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"We recently had Joe complete a lithium battery upgrade on our boat, and we could not be happier with the result. From the very beginning, Joe provided outstanding assistance with the planning and preparation, making sure everything was carefully thought through before the installation even started.
+The work was completed exactly on schedule, and the quality of the installation was excellent. Everything is working perfectly, and it is clear that Joe takes great pride in his workmanship and attention to detail.
+If you are considering a lithium battery upgrade or any similar electrical work, we would highly recommend Joe. His professionalism, knowledge, reliability, and willingness to help throughout the entire process made the experience smooth and stress-free. Thanks again, Joe, for a fantastic job!"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial7" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"Joe has done several installations on Aba, including solar, inverter and smart monitoring system. Joe does very good work at competitive prices, he is reliable, comes when scheduled and I was particularly happy with how he patiently explained what was being done and why. recommended!"</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial8" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"..."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalTestimonial9" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Full Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-quote-large">"..."</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <a href="https://api.whatsapp.com/send?phone=+31612435676&text=Hello! I'm interested in learning more about your services." target="_blank" class="whatsapp-button" style="padding: 10px; position: fixed; right: 15px; bottom: 15px; z-index: 9999;">
         <img src="https://www.vectorlogo.zone/logos/whatsapp/whatsapp-icon.svg" alt="WhatsApp Icon" style="width: 80px;" />
     </a>
@@ -195,6 +632,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+    
 </body>
 
 </html>
